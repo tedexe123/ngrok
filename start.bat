@@ -1,21 +1,21 @@
 @echo off
 del /f "C:\Users\Public\Desktop\Epic Games Launcher.lnk" > out.txt 2>&1
-net config server /srvcomment:"Windows Server By Ted Exe" > out.txt 2>&1
+net config server /srvcomment:"Windows Server By TedExe" > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /f /v Wallpaper /t REG_SZ /d D:\a\wallpaper.bat
-net user Ted Exe 1804?tedexe /add >nul
-net localgroup administrators Ted Exe /add >nul
-net user Ted Exe /active:yes >nul
+net user administrator ted@1804 /add >nul
+net localgroup administrators administrator /add >nul
+net user administrator /active:yes >nul
 net user installer /delete
 diskperf -Y >nul
 sc config Audiosrv start= auto >nul
 sc start audiosrv >nul
-ICACLS C:\Windows\Temp /grant Ted Exe:F >nul
-ICACLS C:\Windows\installer /grant Ted Exe:F >nul
-echo Successfully installed! If RDP is dead, rebuild again.
+ICACLS C:\Windows\Temp /grant administrator:F >nul
+ICACLS C:\Windows\installer /grant administrator:F >nul
+echo Successfully Installed!, If the RDP is Dead, Please Rebuild Again!
 echo IP:
-tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "Failed to retreive NGROK authtoken - check again your authtoken"
-echo Username: Ted Exe
-echo Password: tedexedz@
-echo You can login now!
+tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "Unable to get NGROK tunnel, make sure NGROK_AUTH_TOKEN is correct in Settings> Secrets> Repository secret. Maybe your previous VM is still running: https://dashboard.ngrok.com/status/tunnels "
+echo Username: administrator
+echo Password: ted@1804
+echo Please Login to your RDP!!
 ping -n 10 127.0.0.1 >nul
