@@ -3,7 +3,7 @@ del /f "C:\Users\Public\Desktop\Epic Games Launcher.lnk" > out.txt 2>&1
 net config server /srvcomment:"Windows Server By Ted Exe" > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /f /v Wallpaper /t REG_SZ /d D:\a\wallpaper.bat
-net user Ted Exe 6454?foxy /add >nul
+net user Ted Exe 1804?tedexe /add >nul
 net localgroup administrators Ted Exe /add >nul
 net user Ted Exe /active:yes >nul
 net user installer /delete
